@@ -11,25 +11,36 @@ void enterComplexNumber(ComplexNumbers &number){
     cin >> number.c >> number.d;
 }
 
+bool checkImaginery(ComplexNumbers number){
+    if (number.b == 0 && number.d == 0)
+        return  false;
+    else return  true;
+}
+
 void addComplexNumbers(ComplexNumbers number){
     int real = number.a + number.c;
     int imaginary = number.b + number.d;
 
-    cout << real << " + " << imaginary << "i" << endl;
+    if (checkImaginery(number)) cout << real << " + " << imaginary << "i" << endl;
+    else cout << real << endl;
 }
 
 void subtractComplexNumbers(ComplexNumbers number){
     int real = number.a - number.c; 
     int imaginary = number.b - number.d;
 
-    cout << real << " + " << imaginary << "i" << endl;
+    if (checkImaginery(number)) cout << real << " + " << imaginary << "i" << endl;
+    else cout << real << endl;
+    
 }
 
 void multiplyComplexNumbers(ComplexNumbers number){
     int real = (number.a * number.c) - (number.b * number.d);
     int imaginary = (number.a * number.d) + (number.b * number.c);
 
-    cout << real << " + " << imaginary << "i" << endl;
+    if (checkImaginery(number)) cout << real << " + " << imaginary << "i" << endl;
+    else cout << real << endl;
+    
 }
 
 
