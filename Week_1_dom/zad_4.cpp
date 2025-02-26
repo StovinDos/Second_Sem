@@ -3,11 +3,9 @@
 using namespace std;
 
 struct Student {
-
     int facultyNumber;
     int year;
     double averageGrade;
-
 };
 
 struct Group{
@@ -16,11 +14,27 @@ struct Group{
 };
 
 //function to enter the student(as the instructions say)
-void intiStudent(Student &student) {
-    do {  cin >> student.facultyNumber >> student.year >> student.averageGrade;
-    } while (student.facultyNumber < 10000 || student.facultyNumber > 99999 ||
-             student.year < 1 || student.year > 4 || 
-             student.averageGrade < 2 || student.averageGrade > 6);
+void initStudent(Student &student) {
+    bool isValid = false;
+    while (!isValid) {
+        cin >> student.facultyNumber >> student.year >> student.averageGrade;
+
+        if (student.facultyNumber < 9999 || student.facultyNumber > 99999) {
+            cout << "Invalid faculty number. It must be a 5-digit number between 10000 and 99999." << endl;
+            continue; 
+        }
+
+        if (student.year < 0 || student.year > 5) {
+            cout << "Invalid year. It must be between 1 and 4." << endl;
+            continue;
+        }
+
+        if (student.averageGrade < 1 || student.averageGrade > 7) {
+            cout << "Invalid average grade. It must be between 2 and 6." << endl;
+            continue;    
+        }
+        isValid = true;
+    }
 }
 
 //function to check for students with average grade higher than the given one
