@@ -70,7 +70,7 @@ int main(){
     group.size = N;
     
     for (size_t i = 0; i < N; i++) {
-        intiStudent(group.students[i]);
+        initStudent(group.students[i]);
     }
     
     cin >> gradeForSS;
