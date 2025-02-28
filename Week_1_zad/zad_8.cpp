@@ -26,45 +26,35 @@ int main(){
     int arrSize;
     cin >> arrSize;
     int *arr = new int[arrSize];
+
     if (checkEmpty(arrSize)){
         cout << "The array is empty." << endl;
         return 1;
     } else cout << "The array is not empty." << endl;
     
-   
-
     for (size_t i = 0; i < arrSize; i++){
         cin >> arr[i];
     }
 
-    for (size_t i = 0; i < arrSize; i++)
-    {
+    for (size_t i = 0; i < arrSize; i++){
         cout << arr[i] << " ";
     }
     
-    
-
     cout << "Enter the element you want to add last: ";
     int element;
     cin >> element; 
-    addLast(arr, arrSize, element);
 
+    addLast(arr, arrSize, element);
     for (size_t i = 0; i < arrSize + 1; i++)
     {
         cout << arr[i] << " ";
     }
 
-
     cout << "Remove the last element: ";
     removeLast(arr, arrSize);
-
-    for (size_t i = 0; i < arrSize; i++)
-    {
+    for (size_t i = 0; i < arrSize; i++){
         cout << arr[i] << " ";
     }
-
-
-
 
     delete[] arr;
     return 0;
