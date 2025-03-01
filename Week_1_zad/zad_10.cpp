@@ -81,6 +81,15 @@ void sortCards(string cards[], int N, string trump) {
 
 }
 
+bool isDuplicate(const string cards[], int currentSize, const string &newCard) {
+    for (int i = 0; i < currentSize; ++i) {
+        if (cards[i] == newCard) {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main() {
     cout << "In belot, there are 32 cards. How many do you want to compare: ";
     int N;
@@ -98,13 +107,22 @@ int main() {
     cout << "Card suits: S; H; D; C." << endl;
 
     for (int i = 0; i < N; i++) {
-        cout << "Enter card name " << i + 1 << ": ";
-        cin >> card_name;
+        while (true) {
+            cout << "Enter card name " << i + 1 << ": ";
+            cin >> card_name;
 
-        cout << "Enter card suit " << i + 1 << ": ";
-        cin >> card_suit;
+            cout << "Enter card suit " << i + 1 << ": ";
+            cin >> card_suit;
 
-        cards[i] = inticards(card_name, card_suit);
+            string newCard = inticards(card_name, card_suit);
+
+            if (!isDuplicate(cards, i, newCard)) {
+                cards[i] = newCard;
+                break;
+            } else {
+                cout << "Duplicate card detected. Please enter a different card." << endl;
+            }
+        }
     }
 
     cout << "Trump or not: ";
