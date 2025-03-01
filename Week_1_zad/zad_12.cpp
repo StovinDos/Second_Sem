@@ -34,6 +34,7 @@ void sortArr(int arr[], int N){
 }
 
 int main(){
+    
     int N, K;
 
     cout << "Enter the number of elements in the array: ";
