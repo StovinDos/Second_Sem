@@ -19,7 +19,18 @@ void binarySearchArr(int arr[], int N, int K){
         mid = (left+right)/2;
     }
     cout << "Element not found." << endl;
+}
 
+void sortArr(int arr[], int N){
+    for(int i = 0; i < N-1; i++){
+        for(int j = 0; j < N-i-1; j++){
+            if(arr[j] > arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
 }
 
 int main(){
@@ -38,6 +49,7 @@ int main(){
     cout << "Enter the element you are searching for: ";
     cin >> K;
 
+    sortArr(arr, N);
     binarySearchArr(arr, N, K);
 
 }
